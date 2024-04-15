@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anagram Checker</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #005e67; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #f5ecec; 
+    margin-bottom: 40px;
+    font-weight: bold; 
+}
+
+input[type="text"] {
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border-radius: 5px; 
+    border: 2px solid #000000; 
+    outline: none; 
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px; 
+    background-color: #fffefe; 
+    color: #000000; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+     
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #4b4b4b;
+}
+
+#result {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333; 
+    font-size: 18px; 
+}
+
+</style>
+</head>
+<body>
+
+<h1>Anagram Checker</h1>
+
+<input type="text" id="inputString1" placeholder="Enter first string">
+<input type="text" id="inputString2" placeholder="Enter second string">
+<button onclick="checkAnagram()">Check</button>
+<div id="result"></div>
+
+<script>
+function checkAnagram() {
+    var string1 = document.getElementById("inputString1").value.toLowerCase().replace(/\s/g, '');
+    var string2 = document.getElementById("inputString2").value.toLowerCase().replace(/\s/g, '');
+
+    // Sort the characters of both strings
+    var sortedString1 = string1.split('').sort().join('');
+    var sortedString2 = string2.split('').sort().join('');
+
+    // Compare sorted strings
+    if (sortedString1 === sortedString2) {
+        document.getElementById("result").innerText = "True! The strings are anagrams.";
+    } else {
+        document.getElementById("result").innerText = "False! The strings are not anagrams.";
+    }
+}
+</script>
+
+</body>
+</html>
